@@ -199,6 +199,12 @@ Skills are plain Markdown files. Fork and customize:
 - **Prompt templates** — tailor the review persona and evaluation criteria
 - **`allowed-tools`** — restrict or expand what each skill can do
 
+## 💬 Community
+
+Join the WeChat group for discussion on Claude Code + AI-driven research workflows:
+
+<img src="wechat_group.jpg" alt="WeChat Group QR Code" width="300">
+
 ## License
 
 MIT

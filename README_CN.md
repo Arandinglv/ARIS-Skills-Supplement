@@ -133,6 +133,12 @@ Skills 就是普通的 Markdown 文件，fork 后随意改：
 - **Prompt 模板** — 定制评审人格和评估标准
 - **`allowed-tools`** — 限制或扩展每个 skill 可用的工具
 
+## 💬 交流群
+
+欢迎加入微信群，交流 Claude Code + AI 科研工作流：
+
+<img src="wechat_group.jpg" alt="微信交流群二维码" width="300">
+
 ## License
 
 MIT
