@@ -43,9 +43,9 @@ The output is a ranked `IDEA_REPORT.md` with hypotheses, pilot results, reviewer
 
 These skills compose into a full research lifecycle. The two workflows can be used independently or chained together:
 
-- **Exploring a new area (e.g., writing a survey)?** Start with Workflow 1 (idea discovery)
-- **Already have an idea + initial plan?** Jump straight to Workflow 2 (auto review loop)
-- **Full pipeline?** Workflow 1 → Workflow 2, from literature survey all the way to submission
+- **Exploring a new area (e.g., writing a survey)?** Start with Workflow 1 → `/idea-discovery`
+- **Already have an idea + initial plan?** Jump straight to Workflow 2 → `/auto-review-loop`
+- **Full pipeline?** Workflow 1 → Workflow 2 → `/research-pipeline` — from literature survey all the way to submission
 
 > ⚠️ **Important:** These tools accelerate research, but they don't replace your own critical thinking. Always review generated ideas with your domain expertise, question the assumptions, and make the final call yourself. The best research comes from human insight + AI execution, not full autopilot.
 
@@ -95,6 +95,8 @@ These skills compose into a full research lifecycle. The two workflows can be us
 
 **Skills involved:** `research-lit` + `idea-creator` + `novelty-check` + `research-review`
 
+> 💡 **One-command shortcut:** `/idea-discovery "your research direction"` runs this entire workflow automatically.
+
 📝 **Blog post:** [Claude Code 两月 NeurIPS 指北](http://xhslink.com/o/7IvAJQ41IBA)
 
 ### Workflow 2: Auto Research Loop 🔁 (sleep & wake up to results)
@@ -127,6 +129,8 @@ These skills compose into a full research lifecycle. The two workflows can be us
 ```
 
 **Skills involved:** `auto-review-loop` + `research-review` + `novelty-check` + `run-experiment` + `analyze-results` + `monitor-experiment`
+
+> 💡 **One-command shortcut:** `/auto-review-loop "your paper topic"` runs this entire workflow automatically.
 
 **🛡️ Key safety features:**
 

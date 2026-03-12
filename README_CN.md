@@ -43,9 +43,9 @@
 
 所有 Skills 组成完整科研流水线。两个工作流可以单独使用，也可以串联：
 
-- **探索新方向（比如写 survey）？** 从工作流 1 开始（找 idea）
-- **已有 idea + 初步方案？** 直接用工作流 2（自动 review 循环）
-- **全流程？** 工作流 1 → 工作流 2，从文献调研一路到投稿
+- **探索新方向（比如写 survey）？** 从工作流 1 开始 → `/idea-discovery`
+- **已有 idea + 初步方案？** 直接用工作流 2 → `/auto-review-loop`
+- **全流程？** 工作流 1 → 工作流 2 → `/research-pipeline`，从文献调研一路到投稿
 
 > ⚠️ **重要提醒：** 这些工具加速科研，但不能替代你自己的思考。生成的 idea 一定要用你的领域知识审视，质疑其假设，最终决策权在你手上。最好的研究 = 人的洞察 + AI 的执行力，而不是全自动流水线。
 
@@ -63,6 +63,8 @@
 
 **涉及 Skills：** `research-lit` + `idea-creator` + `novelty-check` + `research-review`
 
+> 💡 **一键调用：** `/idea-discovery "你的研究方向"` 自动跑完整个工作流 1。
+
 ```
 1. /research-lit "discrete diffusion models"    ← 搜论文，整理全景
 2. /idea-creator "DLLMs post training"     ← 自动生成 8-12 个 idea，筛选排序
@@ -79,6 +81,8 @@
 > "帮我 review 论文，修复问题，循环到通过为止。"
 
 **涉及 Skills：** `auto-review-loop` + `research-review` + `novelty-check` + `run-experiment` + `analyze-results` + `monitor-experiment`
+
+> 💡 **一键调用：** `/auto-review-loop "你的论文主题"` 自动跑完整个工作流 2。
 
 ```
 外部 LLM 评审 → Claude Code 实现修复 → /run-experiment 部署 → 收结果 → 再评审 → 循环
