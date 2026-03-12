@@ -316,10 +316,70 @@ Override inline: `/research-lit "topic" — paper library: ~/Zotero/storage/`
 - **Prompt templates** — tailor the review persona and evaluation criteria
 - **`allowed-tools`** — restrict or expand what each skill can do
 
+## 🔀 Alternative Model Combination: GLM + MiniMax
+
+Don't have Claude / OpenAI API access? You can run the full ARIS pipeline using **GLM (ZhiPu)** as the executor and **MiniMax-2.5** as the reviewer — same cross-model architecture, different providers.
+
+| Role | Default | Alternative |
+|------|---------|-------------|
+| Executor (Claude Code) | Claude Opus/Sonnet | GLM-5 / GLM-4.7 (via ZhiPu API) |
+| Reviewer (Codex MCP) | GPT-5.4 | MiniMax-M2.5 (via MiniMax API) |
+
+### Step 1: Install Claude Code & Codex CLI
+
+```bash
+npm install -g @anthropic-ai/claude-code
+npm install -g @openai/codex
+```
+
+### Step 2: Configure `~/.claude/settings.json`
+
+Open with: `nano ~/.claude/settings.json`
+
+```json
+{
+    "env": {
+        "ANTHROPIC_AUTH_TOKEN": "your_zai_api_key",
+        "ANTHROPIC_BASE_URL": "https://api.z.ai/api/anthropic",
+        "API_TIMEOUT_MS": "3000000",
+        "ANTHROPIC_DEFAULT_HAIKU_MODEL": "glm-4.5-air",
+        "ANTHROPIC_DEFAULT_SONNET_MODEL": "glm-4.7",
+        "ANTHROPIC_DEFAULT_OPUS_MODEL": "glm-5",
+        "CODEX_API_KEY": "your_zai_api_key",
+        "CODEX_API_BASE": "https://api.minimax.chat/v1/",
+        "CODEX_MODEL": "MiniMax-M2.5"
+    },
+    "mcpServers": {
+        "codex": {
+            "command": "/opt/homebrew/bin/codex",
+            "args": [
+                "mcp-server"
+            ]
+        }
+    }
+}
+```
+
+Save: `Ctrl+O` → `Enter` → `Ctrl+X`
+
+### Step 3: Install Skills & Run
+
+```bash
+git clone https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep.git
+cd Auto-claude-code-research-in-sleep
+cp -r skills/* ~/.claude/skills/
+
+# Launch Claude Code (now powered by GLM)
+claude
+```
+
+That's it. All `/idea-discovery`, `/auto-review-loop`, `/research-pipeline` commands work the same way — GLM executes, MiniMax reviews.
+
+> ⚠️ **Note:** GLM and MiniMax may behave differently from Claude and GPT-5.4. You may need to adjust `REVIEWER_MODEL` in the skills and tune prompt templates for best results. The core cross-model architecture remains the same.
+
 ## 📋 Roadmap
 
 - [ ] **Zotero MCP integration** — read papers, tags, and annotations directly from Zotero library
-- [ ] **GLM-5 (executor) + Minimax-2.5 (reviewer)** — alternative cross-model pair, same architecture as Claude Code + Codex
 - [ ] More executor × reviewer combinations (Gemini, DeepSeek, etc.)
 
 ## 💬 Community

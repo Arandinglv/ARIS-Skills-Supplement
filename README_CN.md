@@ -263,10 +263,70 @@ Skills 就是普通的 Markdown 文件，fork 后随意改：
 - **Prompt 模板** — 定制评审人格和评估标准
 - **`allowed-tools`** — 限制或扩展每个 skill 可用的工具
 
+## 🔀 替代模型组合：GLM + MiniMax
+
+没有 Claude / OpenAI API？可以用 **GLM（智谱）** 做执行者 + **MiniMax-2.5** 做审稿人——同样的跨模型架构，不同的提供商。
+
+| 角色 | 默认 | 替代 |
+|------|------|------|
+| 执行者（Claude Code） | Claude Opus/Sonnet | GLM-5 / GLM-4.7（智谱 API） |
+| 审稿人（Codex MCP） | GPT-5.4 | MiniMax-M2.5（MiniMax API） |
+
+### 第 1 步：安装 Claude Code 和 Codex CLI
+
+```bash
+npm install -g @anthropic-ai/claude-code
+npm install -g @openai/codex
+```
+
+### 第 2 步：配置 `~/.claude/settings.json`
+
+终端输入：`nano ~/.claude/settings.json`
+
+```json
+{
+    "env": {
+        "ANTHROPIC_AUTH_TOKEN": "your_zai_api_key",
+        "ANTHROPIC_BASE_URL": "https://api.z.ai/api/anthropic",
+        "API_TIMEOUT_MS": "3000000",
+        "ANTHROPIC_DEFAULT_HAIKU_MODEL": "glm-4.5-air",
+        "ANTHROPIC_DEFAULT_SONNET_MODEL": "glm-4.7",
+        "ANTHROPIC_DEFAULT_OPUS_MODEL": "glm-5",
+        "CODEX_API_KEY": "your_zai_api_key",
+        "CODEX_API_BASE": "https://api.minimax.chat/v1/",
+        "CODEX_MODEL": "MiniMax-M2.5"
+    },
+    "mcpServers": {
+        "codex": {
+            "command": "/opt/homebrew/bin/codex",
+            "args": [
+                "mcp-server"
+            ]
+        }
+    }
+}
+```
+
+保存：`Ctrl+O` → `Enter` → `Ctrl+X`
+
+### 第 3 步：安装 Skills 并运行
+
+```bash
+git clone https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep.git
+cd Auto-claude-code-research-in-sleep
+cp -r skills/* ~/.claude/skills/
+
+# 启动 Claude Code（现在由 GLM 驱动）
+claude
+```
+
+搞定。所有 `/idea-discovery`、`/auto-review-loop`、`/research-pipeline` 命令照常使用——GLM 执行，MiniMax 审稿。
+
+> ⚠️ **注意：** GLM 和 MiniMax 的行为可能与 Claude 和 GPT-5.4 有所不同。你可能需要调整 skill 中的 `REVIEWER_MODEL` 并微调 prompt 模板以获得最佳效果。核心的跨模型架构不变。
+
 ## 📋 Roadmap
 
 - [ ] **Zotero MCP 集成** — 直接读取 Zotero 论文库的论文、标签和批注
-- [ ] **GLM-5（执行者）+ Minimax-2.5（评审者）** — 与 Claude Code + Codex 平行的跨模型组合
 - [ ] 更多执行者 × 评审者组合（Gemini、DeepSeek 等）
 
 ## 💬 交流群
