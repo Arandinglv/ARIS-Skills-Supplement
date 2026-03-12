@@ -57,6 +57,8 @@ These skills compose into a full research lifecycle. The two workflows can be us
   ├──── Workflow 1: Idea Discovery ────┤              ├──────── Workflow 2: Auto Loop ────────┤
 ```
 
+📝 **Blog post:** [梦中科研全流程开源](http://xhslink.com/o/2iV33fYoc7Q)
+
 ### Workflow 1: Literature & Idea Discovery 🔍
 
 > **"What's the state of the art? Where are the gaps?"**
