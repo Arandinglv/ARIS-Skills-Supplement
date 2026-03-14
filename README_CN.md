@@ -96,7 +96,7 @@ claude
 
 循环自主跑了 **20+ 个 GPU 实验**，重写了论文叙事框架，杀掉了经不住检验的声明——全程无人干预。
 
-## 🧩 社区 Skills & 扩展
+## 🧩 Awesome 社区 Skills & 扩展
 
 社区贡献的领域专用 skills 和外部项目。欢迎 PR——添加 `skills/your-skill/SKILL.md` 即可！
 
