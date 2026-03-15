@@ -8,7 +8,7 @@
 
 > 🌙 **Let Claude Code do research while you sleep.** Wake up to find your paper scored, weaknesses identified, experiments run, and narrative rewritten — autonomously.
 
-[![Featured on PaperWeekly](https://img.shields.io/badge/Featured%20on-PaperWeekly-red?style=flat)](https://mp.weixin.qq.com/s/tDniVryVGjDkkkWl-5sTkQ) · [![Featured in awesome-agent-skills](https://img.shields.io/badge/Featured%20in-awesome--agent--skills-blue?style=flat&logo=github)](https://github.com/VoltAgent/awesome-agent-skills) · [![AI Digital Crew - Project of the Day](https://img.shields.io/badge/AI%20Digital%20Crew-Project%20of%20the%20Day%20(2026.03.14)-orange?style=flat)](https://aidigitalcrew.com) · [💬 Join Community](#-community)
+[![Featured on PaperWeekly](https://img.shields.io/badge/Featured%20on-PaperWeekly-red?style=flat)](https://mp.weixin.qq.com/s/tDniVryVGjDkkkWl-5sTkQ) · [![Featured in awesome-agent-skills](https://img.shields.io/badge/Featured%20in-awesome--agent--skills-blue?style=flat&logo=github)](https://github.com/VoltAgent/awesome-agent-skills) · [![AI Digital Crew - Project of the Day](https://img.shields.io/badge/AI%20Digital%20Crew-Project%20of%20the%20Day%20(2026.03.14)-orange?style=flat)](https://aidigitalcrew.com) · [💬 Join Community](#-community) · [📖 Cite Us](#-citation)
 
 Custom [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skills for autonomous ML research workflows. These skills orchestrate **cross-model collaboration** — Claude Code drives the research while an external LLM (via [Codex MCP](https://github.com/openai/codex)) acts as a critical reviewer. 🔀 **Also supports [alternative model combinations](#-alternative-model-combinations) (GLM, MiniMax, Kimi, LongCat, DeepSeek, etc.) — no Claude or OpenAI API required.**
 
@@ -934,6 +934,20 @@ Join the WeChat group for discussion on Claude Code + AI-driven research workflo
 
 <img src="docs/wechat_group.jpg" alt="WeChat Group QR Code" width="300">
 
+## 📖 Citation
+
+If you use ARIS in your research, please cite:
+
+```bibtex
+@misc{yang2026aris,
+    author       = {Yang, Ruofeng and Li, Yongcan and Li, Shuai},
+    title        = {ARIS: Fully Autonomous Research via Adversarial Multi-Agent Collaboration},
+    year         = {2026},
+    organization = {GitHub},
+    url          = {https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep},
+}
+```
+
 ## ⭐ Star History
 
 ![GitHub stars](https://img.shields.io/github/stars/wanshuiyin/Auto-claude-code-research-in-sleep?style=social)
@@ -969,20 +983,6 @@ This project builds on and integrates with many excellent open-source projects:
 
 **Community**
 - [awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) — Curated list of Claude Code skills (featured)
-
-## Citation
-
-If you use ARIS in your research, please cite:
-
-```bibtex
-@misc{yang2026aris,
-    author       = {Yang, Ruofeng and Li, Yongcan and Li, Shuai},
-    title        = {ARIS: Fully Autonomous Research via Adversarial Multi-Agent Collaboration},
-    year         = {2026},
-    organization = {GitHub},
-    url          = {https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep},
-}
-```
 
 ## License
 
