@@ -265,7 +265,66 @@
     <text x="275" y="166" font-size="8px" fill="#4aaa4a"> ████░ 78%</text>
     <text x="233" y="178" font-size="8px" fill="#4aaa4a">Loss: 2.341 → 1.872</text>
 
-    <line x1="202" y1="136" x2="222" y2="136" stroke="#e67e22" stroke-width="2" stroke-dasharray="4,2"/>
+    <!-- GPT-5.4 mini pixel character (code reviewer) between code and deploy -->
+    <g transform="translate(355,192) scale(0.5)">
+      <!-- Hair (dark) -->
+      <rect x="20" y="42" width="7" height="7" fill="#2C2C2C"/>
+      <rect x="27" y="42" width="7" height="7" fill="#2C2C2C"/>
+      <rect x="34" y="42" width="7" height="7" fill="#2C2C2C"/>
+      <rect x="41" y="42" width="7" height="7" fill="#2C2C2C"/>
+      <rect x="13" y="49" width="7" height="7" fill="#2C2C2C"/>
+      <rect x="20" y="49" width="7" height="7" fill="#2C2C2C"/>
+      <rect x="27" y="49" width="7" height="7" fill="#2C2C2C"/>
+      <rect x="34" y="49" width="7" height="7" fill="#2C2C2C"/>
+      <rect x="41" y="49" width="7" height="7" fill="#2C2C2C"/>
+      <rect x="48" y="49" width="7" height="7" fill="#2C2C2C"/>
+      <!-- Face -->
+      <rect x="13" y="56" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="20" y="56" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="27" y="56" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="34" y="56" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="41" y="56" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="48" y="56" width="7" height="7" fill="#FFDAB9"/>
+      <!-- Eyes + glasses -->
+      <rect x="13" y="63" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="20" y="63" width="7" height="7" fill="#333"/>
+      <rect x="27" y="63" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="34" y="63" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="41" y="63" width="7" height="7" fill="#333"/>
+      <rect x="48" y="63" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="18" y="62" width="13" height="2" fill="#555"/>
+      <rect x="38" y="62" width="13" height="2" fill="#555"/>
+      <rect x="31" y="63" width="7" height="1" fill="#555"/>
+      <!-- Mouth -->
+      <rect x="13" y="70" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="20" y="70" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="27" y="70" width="7" height="7" fill="#D4956A"/>
+      <rect x="34" y="70" width="7" height="7" fill="#D4956A"/>
+      <rect x="41" y="70" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="48" y="70" width="7" height="7" fill="#FFDAB9"/>
+      <!-- Body (green shirt) -->
+      <rect x="6" y="77" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="13" y="77" width="7" height="7" fill="#74AA63"/>
+      <rect x="20" y="77" width="7" height="7" fill="#74AA63"/>
+      <rect x="27" y="77" width="7" height="7" fill="#74AA63"/>
+      <rect x="34" y="77" width="7" height="7" fill="#74AA63"/>
+      <rect x="41" y="77" width="7" height="7" fill="#74AA63"/>
+      <rect x="48" y="77" width="7" height="7" fill="#74AA63"/>
+      <rect x="55" y="77" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="13" y="84" width="7" height="7" fill="#74AA63"/>
+      <rect x="20" y="84" width="7" height="7" fill="#74AA63"/>
+      <rect x="27" y="84" width="7" height="7" fill="#74AA63"/>
+      <rect x="34" y="84" width="7" height="7" fill="#74AA63"/>
+      <rect x="41" y="84" width="7" height="7" fill="#74AA63"/>
+      <rect x="48" y="84" width="7" height="7" fill="#74AA63"/>
+      <!-- Legs -->
+      <rect x="16" y="91" width="7" height="7" fill="#444"/>
+      <rect x="23" y="91" width="7" height="7" fill="#444"/>
+      <rect x="37" y="91" width="7" height="7" fill="#444"/>
+      <rect x="44" y="91" width="7" height="7" fill="#444"/>
+    </g>
+    <text x="372" y="247" text-anchor="middle" font-size="6px" fill="#74AA63" font-weight="bold">GPT-5.4</text>
+    <text x="372" y="254" text-anchor="middle" font-size="5px" fill="#74AA63">(Code Review)</text>
 
     <!-- Results panel -->
     <rect x="65" y="196" width="295" height="46" fill="#fff" stroke="#ddd" stroke-width="1" rx="6"/>
@@ -273,7 +332,7 @@
     <text x="75" y="223" font-size="8px" fill="#2a7a2a">✓ Eval CE: 2.798 → 2.651  (↓5.3%)</text>
     <text x="75" y="235" font-size="8px" fill="#2a7a2a">✓ TC: 108.4 → 112.7       (↑4.0%)</text>
 
-    <text x="212" y="255" text-anchor="middle" font-size="10px" fill="#bbb" font-style="italic">Bridge: Implement &amp; Deploy</text>
+    <text x="212" y="255" text-anchor="middle" font-size="10px" fill="#bbb" font-style="italic">Workflow 1.5: Implement &amp; Deploy</text>
   </g>
 
   <!-- ============================================================ -->
@@ -555,6 +614,64 @@
 
     <!-- GPT-5.4 label near score cards -->
     <text x="498" y="238" text-anchor="middle" font-size="8px" fill="#74AA63" font-weight="bold">reviewed by GPT-5.4 xhigh</text>
+
+    <!-- Gemini Pixel Character (purple, right side, same size as CC/GPT) -->
+    <g transform="translate(760,120)">
+      <!-- Hair (purple) -->
+      <rect x="20" y="42" width="7" height="7" fill="#7B42BC"/>
+      <rect x="27" y="42" width="7" height="7" fill="#7B42BC"/>
+      <rect x="34" y="42" width="7" height="7" fill="#7B42BC"/>
+      <rect x="41" y="42" width="7" height="7" fill="#7B42BC"/>
+      <rect x="13" y="49" width="7" height="7" fill="#7B42BC"/>
+      <rect x="20" y="49" width="7" height="7" fill="#7B42BC"/>
+      <rect x="27" y="49" width="7" height="7" fill="#7B42BC"/>
+      <rect x="34" y="49" width="7" height="7" fill="#7B42BC"/>
+      <rect x="41" y="49" width="7" height="7" fill="#7B42BC"/>
+      <rect x="48" y="49" width="7" height="7" fill="#7B42BC"/>
+      <!-- Face -->
+      <rect x="13" y="56" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="20" y="56" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="27" y="56" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="34" y="56" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="41" y="56" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="48" y="56" width="7" height="7" fill="#FFDAB9"/>
+      <!-- Eyes -->
+      <rect x="13" y="63" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="20" y="63" width="7" height="7" fill="#333"/>
+      <rect x="27" y="63" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="34" y="63" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="41" y="63" width="7" height="7" fill="#333"/>
+      <rect x="48" y="63" width="7" height="7" fill="#FFDAB9"/>
+      <!-- Mouth -->
+      <rect x="13" y="70" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="20" y="70" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="27" y="70" width="7" height="7" fill="#E8967A"/>
+      <rect x="34" y="70" width="7" height="7" fill="#E8967A"/>
+      <rect x="41" y="70" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="48" y="70" width="7" height="7" fill="#FFDAB9"/>
+      <!-- Body (purple shirt) -->
+      <rect x="6" y="77" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="13" y="77" width="7" height="7" fill="#9B59B6"/>
+      <rect x="20" y="77" width="7" height="7" fill="#9B59B6"/>
+      <rect x="27" y="77" width="7" height="7" fill="#9B59B6"/>
+      <rect x="34" y="77" width="7" height="7" fill="#9B59B6"/>
+      <rect x="41" y="77" width="7" height="7" fill="#9B59B6"/>
+      <rect x="48" y="77" width="7" height="7" fill="#9B59B6"/>
+      <rect x="55" y="77" width="7" height="7" fill="#FFDAB9"/>
+      <rect x="13" y="84" width="7" height="7" fill="#9B59B6"/>
+      <rect x="20" y="84" width="7" height="7" fill="#9B59B6"/>
+      <rect x="27" y="84" width="7" height="7" fill="#9B59B6"/>
+      <rect x="34" y="84" width="7" height="7" fill="#9B59B6"/>
+      <rect x="41" y="84" width="7" height="7" fill="#9B59B6"/>
+      <rect x="48" y="84" width="7" height="7" fill="#9B59B6"/>
+      <!-- Legs -->
+      <rect x="16" y="91" width="7" height="7" fill="#4A4A6A"/>
+      <rect x="23" y="91" width="7" height="7" fill="#4A4A6A"/>
+      <rect x="37" y="91" width="7" height="7" fill="#4A4A6A"/>
+      <rect x="44" y="91" width="7" height="7" fill="#4A4A6A"/>
+    </g>
+    <text x="794" y="228" text-anchor="middle" fill="#9B59B6" font-size="9px" font-weight="bold">Gemini</text>
+    <text x="794" y="238" text-anchor="middle" fill="#9B59B6" font-size="9px" font-weight="bold">(Figures)</text>
 
     <!-- Tagline -->
     <text x="425" y="248" text-anchor="middle" font-size="11px" fill="#bbb" font-style="italic">Workflow 3: Paper Writing — from narrative to polished PDF</text>

@@ -4,6 +4,7 @@
 import json
 import os
 import sys
+import tempfile
 import httpx
 
 # Force unbuffered stdout/stdin
@@ -11,7 +12,7 @@ sys.stdout = os.fdopen(sys.stdout.fileno(), 'wb', buffering=0)
 sys.stdin = os.fdopen(sys.stdin.fileno(), 'rb', buffering=0)
 
 # Debug logging
-DEBUG_LOG = "/tmp/minimax-mcp-debug.log"
+DEBUG_LOG = os.path.join(tempfile.gettempdir(), "minimax-mcp-debug.log")
 
 def debug_log(msg):
     """Write debug message to log file"""
@@ -23,7 +24,7 @@ def debug_log(msg):
     except:
         pass
 
-debug_log("=== MCP Server Starting (v2.0) ===")
+debug_log("=== MCP Server Starting (v2.1) ===")
 debug_log(f"MINIMAX_API_KEY set: {bool(os.environ.get('MINIMAX_API_KEY'))}")
 debug_log(f"MINIMAX_BASE_URL: {os.environ.get('MINIMAX_BASE_URL', 'not set')}")
 debug_log(f"MINIMAX_MODEL: {os.environ.get('MINIMAX_MODEL', 'not set')}")

@@ -40,7 +40,7 @@ mkdir -p ~/.claude/mcp-servers/minimax-chat
 ### 3. 安装 Python 依赖
 
 ```bash
-pip3 install httpx
+pip3 install -r mcp-servers/minimax-chat/requirements.txt
 ```
 
 ### 4. 配置 Claude Code settings.json
@@ -130,7 +130,7 @@ Skill 会自动检测并使用 `mcp__minimax-chat__minimax_chat` 工具。
 ## MCP 服务器特性
 
 - **双格式支持**：自动检测并支持标准 MCP 格式和 NDJSON 格式
-- **调试日志**：日志保存在 `/tmp/minimax-mcp-debug.log`
+- **调试日志**：日志保存在系统临时目录下的 `minimax-mcp-debug.log`
 - **错误处理**：完善的错误处理和恢复机制
 
 ## 验证安装
@@ -165,7 +165,7 @@ curl -s "https://api.minimax.chat/v1/chat/completions" \
 
 ### Q: MCP 工具不可用？
 
-1. 检查 `/tmp/minimax-mcp-debug.log` 日志文件
+1. 检查系统临时目录下的 `minimax-mcp-debug.log` 日志文件（可运行 `python3 -c "import tempfile; print(tempfile.gettempdir())"` 查看系统临时目录）
 2. 确认 `settings.json` 配置正确
 3. 确认 Python 路径正确（`/usr/bin/python3` 或 `which python3`）
 4. 重启 Claude Code

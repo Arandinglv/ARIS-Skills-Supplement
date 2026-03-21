@@ -9,6 +9,14 @@ allowed-tools: Bash(*), Read, Write, Edit, Grep, Glob, WebSearch, WebFetch, Agen
 
 End-to-end autonomous research workflow for: **$ARGUMENTS**
 
+## Constants
+
+- **AUTO_PROCEED = true** — When `true`, Gate 1 auto-selects the top-ranked idea (highest pilot signal + novelty confirmed) and continues to implementation. When `false`, always waits for explicit user confirmation before proceeding.
+- **ARXIV_DOWNLOAD = false** — When `true`, `/research-lit` downloads the top relevant arXiv PDFs during literature survey. When `false` (default), only fetches metadata via arXiv API. Passed through to `/idea-discovery` → `/research-lit`.
+- **HUMAN_CHECKPOINT = false** — When `true`, the auto-review loops (Stage 4) pause after each round's review to let you see the score and provide custom modification instructions before fixes are implemented. When `false` (default), loops run fully autonomously. Passed through to `/auto-review-loop`.
+
+> 💡 Override via argument, e.g., `/research-pipeline "topic" — AUTO_PROCEED: false, human checkpoint: true`.
+
 ## Overview
 
 This skill chains the entire research lifecycle into a single pipeline:
@@ -48,14 +56,16 @@ After `IDEA_REPORT.md` is generated, **pause and present the top ideas to the us
 Recommended: Idea 1. Shall I proceed with implementation?
 ```
 
-**Wait for user confirmation before continuing.** The user may:
+**If AUTO_PROCEED=false:** Wait for user confirmation before continuing. The user may:
 - **Approve an idea** → proceed to Stage 2.
 - **Pick a different idea** → proceed with their choice.
 - **Request changes** (e.g., "combine Idea 1 and 3", "focus more on X") → update the idea prompt with user feedback, re-run `/idea-discovery` with refined constraints, and present again.
 - **Reject all ideas** → collect feedback on what's missing, re-run Stage 1 with adjusted research direction. Repeat until the user commits to an idea.
 - **Stop here** → save current state to `IDEA_REPORT.md` for future reference.
 
-> ⚠️ **This gate ALWAYS waits for explicit user confirmation** — unlike `/idea-discovery` checkpoints which can auto-proceed. The rest of the pipeline is expensive (GPU time + multiple review rounds). Do NOT proceed until the user says which idea to pursue.
+**If AUTO_PROCEED=true:** Present the top ideas, wait 10 seconds for user input. If no response, auto-select the #1 ranked idea (highest pilot signal + novelty confirmed) and proceed to Stage 2. Log: `"AUTO_PROCEED: selected Idea 1 — [title]"`.
+
+> ⚠️ **This gate waits for user confirmation when AUTO_PROCEED=false.** When `true`, it auto-selects the top idea after presenting results. The rest of the pipeline (Stages 2-4) is expensive (GPU time + multiple review rounds), so set `AUTO_PROCEED=false` if you want to manually choose which idea to pursue.
 
 ### Stage 2: Implementation
 
@@ -143,7 +153,9 @@ After the auto-review loop completes, write a final status report:
 
 ## Key Rules
 
-- **Human checkpoint after Stage 1 is MANDATORY.** Do not auto-proceed to implementation without user confirmation.
+- **Large file handling**: If the Write tool fails due to file size, immediately retry using Bash (`cat << 'EOF' > file`) to write in chunks. Do NOT ask the user for permission — just do it silently.
+
+- **Human checkpoint after Stage 1 is controlled by AUTO_PROCEED.** When `false`, do not proceed without user confirmation. When `true`, auto-select the top idea after presenting results.
 - **Stages 2-4 can run autonomously** once the user confirms the idea. This is the "sleep and wake up to results" part.
 - **If Stage 4 ends at round 4 without positive assessment**, stop and report remaining issues. Do not loop forever.
 - **Budget awareness**: Track total GPU-hours across the pipeline. Flag if approaching user-defined limits.
@@ -154,8 +166,8 @@ After the auto-review loop completes, write a final status report:
 
 | Stage | Duration | Can sleep? |
 |-------|----------|------------|
-| 1. Idea Discovery | 30-60 min | No (interactive checkpoints) |
-| 2. Implementation | 15-60 min | No (may need user input) |
+| 1. Idea Discovery | 30-60 min | Yes if AUTO_PROCEED=true |
+| 2. Implementation | 15-60 min | Yes (autonomous after Gate 1) |
 | 3. Deploy | 5 min + experiment time | Yes ✅ |
 | 4. Auto Review | 1-4 hours (depends on experiments) | Yes ✅ |
 

@@ -105,5 +105,5 @@
   <text x="75" y="251" font-size="8px" fill="#2a7a2a">✓ TC: 108.4 → 112.7       (↑4.0%)</text>
 
   <!-- ====== Bottom tagline ====== -->
-  <text x="212" y="282" text-anchor="middle" font-size="10px" fill="#bbb" font-style="italic">Bridge: Implement &amp; Deploy</text>
+  <text x="212" y="282" text-anchor="middle" font-size="10px" fill="#bbb" font-style="italic">Workflow 1.5: Implement &amp; Deploy</text>
 </svg>
