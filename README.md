@@ -17,16 +17,49 @@ For all original workflows and full documentation, please use the upstream repos
 
 ### Command Examples
 
+#### Mode A: Latest arXiv Topic Search
 ```bash
-# Find recent arXiv papers and append to markdown
-/paper-reading-note "latest arxiv on multi-image reasoning benchmark" - append to /path/to/Multi-Image-Benchmark.md
+/paper-reading-note "latest arxiv on self-evolving agents"
 
-# Read a specific Zotero paper and append to markdown
-/paper-reading-note "from zotero: MMDU: A Multi-Turn Multi-Image Dialog Understanding Benchmark and Instruction-Tuning Dataset for LVLMs" - append to /path/to/Multi-Image-Benchmark.md
-
-# Search OpenReview by topic and append to markdown
-/paper-reading-note "search openreview: multi-image reasoning benchmark" - append to /path/to/Multi-Image-Benchmark.md
+/paper-reading-note "最近 arxiv 自进化智能体"
 ```
+
+#### Mode B: OpenReview Keyword Search
+```bash
+/paper-reading-note "search openreview: self-evolving agents"
+
+/paper-reading-note "latest openreview papers on multi-agent learning"
+```
+
+#### Mode C: Specific Zotero Paper
+```bash
+/paper-reading-note "from zotero: A Systematic Survey of Self-Evolving Agents"
+
+/paper-reading-note "从 zotero 读取：Self-Evolving Agents"
+```
+
+#### Mode D: Paper by Title or URL
+```bash
+/paper-reading-note "A Systematic Survey of Self-Evolving Agents"
+
+/paper-reading-note "https://arxiv.org/abs/2507.21046"
+```
+
+#### Mode E: Direct URL(s) (Multiple Papers)
+```bash
+/paper-reading-note "https://arxiv.org/pdf/2507.21046 https://arxiv.org/pdf/2508.07407"
+
+/paper-reading-note "https://www.researchgate.net/...survey.pdf https://arxiv.org/pdf/2507.21046"
+```
+
+#### Specify Output File (All Modes)
+```bash
+/paper-reading-note "latest arxiv on self-evolving agents" /path/to/SelfEvolving.md
+
+/paper-reading-note "https://arxiv.org/pdf/2507.21046 https://arxiv.org/pdf/2508.07407" /path/to/SelfEvolving.md
+```
+
+If no file path is specified, the skill will prompt you to choose or create one.
 
 ## Quick Start
 
