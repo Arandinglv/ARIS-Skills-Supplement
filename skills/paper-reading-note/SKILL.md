@@ -97,6 +97,23 @@ If the user provides a paper title or URL without saying Zotero explicitly:
 3. Then arXiv / OpenReview if clearly relevant
 4. Then web
 
+### Mode E: Direct URL(s) provided
+
+Triggered when the user provides one or more direct URLs to papers (PDF links, arXiv pages, ResearchGate, etc.):
+
+- `https://arxiv.org/pdf/2507.21046`
+- `https://www.researchgate.net/...`
+- Multiple URLs separated by spaces or newlines
+
+Behavior:
+
+1. Fetch each URL directly using WebFetch
+2. For arXiv PDF URLs (e.g. `arxiv.org/pdf/XXXX`), also fetch the abstract page (`arxiv.org/abs/XXXX`) to get metadata
+3. Read the full content of each paper from the fetched page
+4. Process each URL as a separate paper and append one note block per paper
+5. Do NOT check Zotero first — the user has already provided the source
+6. If a URL is inaccessible or returns an error, say so and skip that paper gracefully
+
 ## Required Output Template
 
 For each paper, append exactly this section structure with Chinese content:
@@ -172,6 +189,13 @@ For **specific Zotero paper**:
 1. Search Zotero by title
 2. Match exact title first, fuzzy title second
 3. Extract metadata, notes, tags, annotations, and attachments if available
+
+For **direct URL(s)**:
+
+1. Parse all URLs from the input (space- or newline-separated)
+2. For each URL, fetch the content directly with WebFetch
+3. For arXiv PDF URLs, also fetch the corresponding abstract page to get title, authors, and date
+4. Process each URL independently; one note block per paper
 
 ### Step 3: Read and verify
 
@@ -264,4 +288,8 @@ Always tell the user:
 /paper-reading-note "from zotero: MMDU: A Multi-Turn Multi-Image Dialog Understanding Benchmark and Instruction-Tuning Dataset for LVLMs" — append to /Users/jiangyutian/OneDrive/5.Project/LEARN/PAPER-READ/Multi-Image-Benchmark.md
 
 /paper-reading-note "MMDU: A Multi-Turn Multi-Image Dialog Understanding Benchmark and Instruction-Tuning Dataset for LVLMs" — append to /Users/jiangyutian/OneDrive/5.Project/LEARN/PAPER-READ/Multi-Image-Benchmark.md
+
+/paper-reading-note "https://arxiv.org/pdf/2507.21046 https://arxiv.org/pdf/2508.07407" — append to /Users/jiangyutian/OneDrive/5.Project/LEARN/PAPER-READ/SelfEvolving.md
+
+/paper-reading-note "https://www.researchgate.net/...survey.pdf https://arxiv.org/pdf/2507.21046 https://arxiv.org/pdf/2508.07407" — append to /Users/jiangyutian/OneDrive/5.Project/LEARN/PAPER-READ/SelfEvolving.md
 ```
